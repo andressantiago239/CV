@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrés Peña - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #e5e5e5;
+      color: #333333;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .resume-container {
+      width: 100%;
+      max-width: 850px;
+      background: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 1000px;
+    }
+
+    /* Left Sidebar */
+    .sidebar {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .profile-img-container {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 4px solid #4a4a4a;
+      margin: 0 auto;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #2a2a2a;
+    }
+
+    .profile-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sidebar-section h3 {
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #555555;
+      padding-bottom: 6px;
+      margin-bottom: 15px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .sidebar-section ul {
+      list-style-type: none;
+    }
+
+    .sidebar-section ul li {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      color: #cccccc;
+      word-break: break-word;
+    }
+
+    .sidebar-section ul li a {
+      color: #cccccc;
+      text-decoration: none;
+    }
+
+    .sidebar-section ul li a:hover {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+
+    .skills-list li {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 10px;
+    }
+
+    .skills-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    /* Main Content Right */
+    .main-content {
+      padding: 40px 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .header-name {
+      border-bottom: 2px solid #1a1a1a;
+      padding-bottom: 12px;
+    }
+
+    .header-name h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 1.5px;
+    }
+
+    .header-name h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #555555;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    .content-section h3 {
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      font-weight: 700;
+      border-bottom: 1px solid #dddddd;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+    }
+
+    .content-section p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #444444;
+      text-align: justify;
+    }
+
+    .education-item {
+      margin-bottom: 14px;
+    }
+
+    .education-item h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .education-item .date {
+      font-size: 0.8rem;
+      color: #777777;
+      margin: 2px 0;
+    }
+
+    .education-item .degree {
+      font-size: 0.85rem;
+      color: #444444;
+    }
+
+    .tech-skills-list {
+      list-style-type: none;
+    }
+
+    .tech-skills-list li {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #444444;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .tech-skills-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1a1a1a;
+      font-weight: bold;
+    }
+
+    .tech-skills-list strong {
+      color: #1a1a1a;
+    }
+
+    .info-list {
+      list-style-type: none;
+    }
+
+    .info-list li {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #444444;
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .info-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1a1a1a;
+      font-weight: bold;
+    }
+
+    /* Print settings */
+    @media print {
+      body {
+        background-color: #ffffff;
+        padding: 0;
+      }
+      .resume-container {
+        box-shadow: none;
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 650px) {
+      .resume-container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        padding: 30px 20px;
+      }
+      .main-content {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-container">
+    <!-- Sidebar Left -->
+    <aside class="sidebar">
+      <div class="profile-img-container">
+        <!-- Reemplaza la ruta de la imagen con la tuya si la tienes guardada localmente -->
+        <img src="https://via.placeholder.com/170" alt="Andrés Peña Profile Picture">
+      </div>
+
+      <section class="sidebar-section">
+        <h3>Contact</h3>
+        <ul>
+          <li><strong>Phone:</strong><br> 310-756-5239</li>
+          <li><strong>Email:</strong><br> <a href="mailto:andressantiagopenamurcia@gmail.com">andressantiagopenamurcia@gmail.com</a></li>
+          <li><strong>Location:</strong><br> Engativá, Bogotá D.C</li>
+          <li><strong>LinkedIn:</strong><br> <a href="https://www.linkedin.com/in/andr%C3%A9s-santiago-pe%C3%B1a-murcia-083a87342/" target="_blank">View Profile</a></li>
+        </ul>
+      </section>
+
+      <section class="sidebar-section">
+        <h3>Skills</h3>
+        <ul class="skills-list">
+          <li>Clear and professional communication (English - Spanish).</li>
+          <li>Adaptability and fast learner.</li>
+          <li>Active listening and empathy.</li>
+          <li>Problem-solving skills.</li>
+          <li>Handling complaints professionally.</li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- Main Content Right -->
+    <main class="main-content">
+      <header class="header-name">
+        <h1>ANDRÉS PEÑA</h1>
+        <h2>Junior Network Administrator</h2>
+      </header>
+
+      <section class="content-section">
+        <h3>Profile</h3>
+        <p>
+          Systems Engineering undergraduate specializing in network administration, routing architecture, and hardware configuration. Combines a solid engineering foundation with hands-on skill in configuring switches, routers, VLANs, and IP addressing protocols (IPv4/IPv6). Proven capability in systematic fault isolation, performance verification, and network security fundamentals. Fully bilingual in English and Spanish, eager to contribute to robust network reliability and ongoing infrastructure maintenance.
+        </p>
+      </section>
+
+      <section class="content-section">
+        <h3>Education</h3>
+        <div class="education-item">
+          <h4>University ECCI</h4>
+          <div class="date">2025 - Present</div>
+          <div class="degree">Systems Engineering Student</div>
+        </div>
+        <div class="education-item">
+          <h4>SMART TRAINING SOCIETY S.A.S</h4>
+          <div class="date">August 2024 - October 2026</div>
+          <div class="degree">English Advanced / C1</div>
+        </div>
+        <div class="education-item">
+          <h4>Robert F. Kennedy</h4>
+          <div class="date">2022</div>
+          <div class="degree">High School Diploma</div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h3>Technical Skills</h3>
+        <ul class="tech-skills-list">
+          <li><strong>Networking & Protocols:</strong> LAN, WAN, VLAN Segmentation, IPv4/IPv6 Addressing, Subnetting, NAT, Default Gateways, DHCP, DNS.</li>
+          <li><strong>Hardware & Configuration:</strong> Router & Switch Provisioning, Interface Configuration, Packet-Level Diagnostics, Basic Routing Protocols.</li>
+          <li><strong>Network Operations:</strong> Connectivity Testing, IP Conflict Resolution, Hardware & Link Diagnostics, Network Security Fundamentals.</li>
+          <li><strong>Tools & Utilities:</strong> Wireshark, Cisco Packet Tracer, Command Line Interface (CLI), Ping/Traceroute Diagnostics.</li>
+          <li><strong>Languages:</strong> English (Bilingual / Advanced Professional Proficiency).</li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h3>Additional Information</h3>
+        <ul class="info-list">
+          <li>Strong willingness to learn and grow professionally.</li>
+          <li>Comfortable working with international customers.</li>
+          <li>Available for training and flexible schedules.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>
